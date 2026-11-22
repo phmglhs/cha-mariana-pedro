@@ -10,6 +10,20 @@
     "Cama & Banho"
   ];
 
+  /* Ordem dos destaques no sort "Padrão". Fácil de reordenar ou trocar. */
+  global.GIFT_FEATURED_IDS = [
+    "airfryer",
+    "espremedor-de-limao",
+    "adega",
+    "balde-para-gelo",
+    "cafeteira-capsula",
+    "tabua-de-corte",
+    "aparelho-de-jantar",
+    "jogo-de-facas",
+    "jogo-de-cama",
+    "batedeira"
+  ];
+
   global.GIFT_CATEGORIES = {
     "liquidificador": "Eletrodomésticos",
     "airfryer": "Eletrodomésticos",

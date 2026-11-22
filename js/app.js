@@ -253,18 +253,47 @@
     if (state.event) renderGifts(state.event.gifts);
   }
 
+  function featuredRank(gift) {
+    const ids = window.GIFT_FEATURED_IDS || [];
+    const i = ids.indexOf(gift && gift.id);
+    return i === -1 ? Infinity : i;
+  }
+
+  function categoryRank(gift) {
+    const order = window.GIFT_CATEGORY_ORDER || [];
+    const i = order.indexOf((gift && gift.category) || "");
+    return i === -1 ? order.length : i;
+  }
+
+  function comparePriceThenIndex(a, b, dir) {
+    const pa = numericPrice(a.gift);
+    const pb = numericPrice(b.gift);
+    if (pa == null && pb == null) return a.index - b.index;
+    if (pa == null) return 1;
+    if (pb == null) return -1;
+    if (pa !== pb) return (pa - pb) * dir;
+    return a.index - b.index;
+  }
+
   function sortedGifts(gifts, mode) {
     const list = gifts.map((gift, index) => ({ gift, index }));
     if (mode === "menor" || mode === "maior") {
       const dir = mode === "menor" ? 1 : -1;
+      list.sort((a, b) => comparePriceThenIndex(a, b, dir));
+    } else {
+      // Padrão: destaques na ordem configurada, depois categoria (ordem dos filtros),
+      // e dentro de cada categoria do mais barato para o mais caro.
       list.sort((a, b) => {
-        const pa = numericPrice(a.gift);
-        const pb = numericPrice(b.gift);
-        if (pa == null && pb == null) return a.index - b.index;
-        if (pa == null) return 1;
-        if (pb == null) return -1;
-        if (pa !== pb) return (pa - pb) * dir;
-        return a.index - b.index;
+        const fa = featuredRank(a.gift);
+        const fb = featuredRank(b.gift);
+        const aFeat = Number.isFinite(fa);
+        const bFeat = Number.isFinite(fb);
+        if (aFeat !== bFeat) return aFeat ? -1 : 1;
+        if (aFeat && bFeat && fa !== fb) return fa - fb;
+        const ca = categoryRank(a.gift);
+        const cb = categoryRank(b.gift);
+        if (ca !== cb) return ca - cb;
+        return comparePriceThenIndex(a, b, 1);
       });
     }
     return list.map((item) => item.gift);
