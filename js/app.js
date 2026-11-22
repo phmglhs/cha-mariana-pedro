@@ -106,7 +106,6 @@
 
   function fillEvent(event) {
     const { couple, event: ev, venue, copy, pix } = event;
-    document.title = `${ev.title} · ${couple.names}`;
     setText("[data-event-title]", ev.title);
     setText("[data-couple-names]", couple.names);
     setText("[data-hero-date]", `${ev.weekdayDisplay}, ${ev.dateDisplay} · ${ev.timeDisplay}`);
