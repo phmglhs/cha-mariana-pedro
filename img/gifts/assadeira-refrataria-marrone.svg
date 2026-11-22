@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F5F0"/>
+      <stop offset="100%" stop-color="#EFE8DF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#B98470" opacity="0.18"/>
+    </pattern>
+    <linearGradient id="ceramic" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A4A28"/>
+      <stop offset="100%" stop-color="#543016"/>
+    </linearGradient>
+    <linearGradient id="well" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B5A2B"/>
+      <stop offset="100%" stop-color="#4A2812"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <rect width="640" height="480" fill="url(#dots)"/>
+  <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
+  <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
+  <g transform="translate(320 250)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="148" rx="200" ry="12" fill="#E8DDD3" stroke="none" opacity="0.55"/>
+    <!-- left handle -->
+    <path d="M-196 8 Q-236 28 -228 62 Q-214 78 -186 68" fill="url(#ceramic)"/>
+    <!-- right handle -->
+    <path d="M196 8 Q236 28 228 62 Q214 78 186 68" fill="url(#ceramic)"/>
+    <!-- outer body -->
+    <path d="M-200 0 Q-210 8 -196 70 L-170 118 Q-150 138 0 140 Q150 138 170 118 L196 70 Q210 8 200 0 Q120 -18 0 -20 Q-120 -18 -200 0 Z" fill="url(#ceramic)"/>
+    <!-- inner well -->
+    <path d="M-156 18 L-140 92 Q-110 112 0 114 Q110 112 140 92 L156 18 Q80 2 0 0 Q-80 2 -156 18 Z" fill="url(#well)"/>
+    <!-- inner rim line -->
+    <path d="M-156 18 Q-80 2 0 0 Q80 2 156 18" stroke="#C4894A" stroke-width="2.5" opacity="0.55"/>
+    <!-- glaze highlight -->
+    <path d="M-120 36 Q-130 70 -108 96" stroke="#C4894A" stroke-width="3" opacity="0.45"/>
+  </g>
+</svg>

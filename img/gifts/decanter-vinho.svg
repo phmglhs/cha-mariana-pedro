@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F5F0"/>
+      <stop offset="100%" stop-color="#EFE8DF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#B98470" opacity="0.18"/>
+    </pattern>
+    <linearGradient id="wine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A2436"/>
+      <stop offset="100%" stop-color="#4A1420"/>
+    </linearGradient>
+    <clipPath id="bodyClip">
+      <path d="M-20 -122 C-22 -58, -32 -36, -42 -16 C-118 8, -128 58, -104 116 Q0 156 104 116 C128 58, 118 8, 42 -16 C32 -36, 22 -58, 20 -122 Z"/>
+    </clipPath>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <rect width="640" height="480" fill="url(#dots)"/>
+  <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
+  <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
+  <g transform="translate(308 248)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="8" cy="160" rx="145" ry="12" fill="#E8DDD3" stroke="none" opacity="0.55"/>
+    <!-- wine, clipped to the glass -->
+    <g clip-path="url(#bodyClip)">
+      <path d="M-130 8 H130 V160 H-130 Z" fill="url(#wine)" stroke="none"/>
+      <ellipse cx="0" cy="10" rx="108" ry="18" fill="#8B2E40" stroke="none"/>
+    </g>
+    <!-- glass body and neck -->
+    <path d="M-20 -122 C-22 -58, -32 -36, -42 -16 C-118 8, -128 58, -104 116 Q0 156 104 116 C128 58, 118 8, 42 -16 C32 -36, 22 -58, 20 -122" fill="#F4EEE7" fill-opacity="0.35"/>
+    <!-- rim -->
+    <ellipse cx="0" cy="-122" rx="22" ry="9" fill="#FAF7F2"/>
+    <!-- pouring lip -->
+    <path d="M-16 -128 Q-58 -146 -42 -118"/>
+    <!-- handle -->
+    <path d="M36 -28 C118 -16, 138 40, 122 88 C110 122, 72 118, 58 98"/>
+    <!-- glass highlight -->
+    <path d="M-78 28 Q-92 72 -70 112" stroke="#B98470" stroke-width="3" opacity="0.45"/>
+  </g>
+</svg>
