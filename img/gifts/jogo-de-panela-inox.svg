@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F5F0"/>
+      <stop offset="100%" stop-color="#EFE8DF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#B98470" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <rect width="640" height="480" fill="url(#dots)"/>
+  <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
+  <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
+  <g transform="translate(320 248)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="150" rx="170" ry="12" fill="#E8DDD3" stroke="none" opacity="0.7"/>
+
+    <!-- large pot -->
+    <path d="M-90 20 h180 l-16 70 h-148 z" fill="#F3EDE5"/>
+    <path d="M-100 20 h200"/>
+    <path d="M-100 20 q-24 -6 -24 -22 h24"/>
+    <path d="M100 20 q24 -6 24 -22 h-24"/>
+    <ellipse cx="0" cy="20" rx="90" ry="14" fill="#FAF7F2"/>
+    <ellipse cx="0" cy="-10" rx="70" ry="12" fill="#EED9CF"/>
+    <circle cx="0" cy="-28" r="8" fill="#B39A84" stroke="#8A4F3D"/>
+    <!-- medium left -->
+    <g transform="translate(-130 -50)">
+      <path d="M-40 20 h80 l-8 46 h-64 z" fill="#F4EEE7"/>
+      <ellipse cx="0" cy="20" rx="40" ry="8" fill="#FAF7F2"/>
+      <path d="M-44 20 q-16 -4 -16 -14 h16"/>
+      <path d="M44 20 q16 -4 16 -14 h-16"/>
+    </g>
+    <!-- small right -->
+    <g transform="translate(130 -30)">
+      <path d="M-32 20 h64 l-7 38 h-50 z" fill="#E8DDD3"/>
+      <ellipse cx="0" cy="20" rx="32" ry="7" fill="#FAF7F2"/>
+    </g>
+
+  </g>
+</svg>

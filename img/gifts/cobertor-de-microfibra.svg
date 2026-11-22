@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F5F0"/>
+      <stop offset="100%" stop-color="#EFE8DF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#B98470" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <rect width="640" height="480" fill="url(#dots)"/>
+  <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
+  <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
+  <g transform="translate(320 248)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="130" rx="170" ry="12" fill="#E8DDD3" stroke="none" opacity="0.7"/>
+
+    <rect x="-170" y="-70" width="300" height="160" rx="16" fill="#E8DDD3"/>
+    <!-- folded corner / stack -->
+    <path d="M130 -70 L190 -20 L190 90 L130 90 Z" fill="#EED9CF"/>
+    <path d="M-140 -40 h240 M-140 -10 h240 M-140 20 h240 M-140 50 h240" stroke="#B98470" stroke-width="2.5" opacity="0.35"/>
+    <!-- folded fold line -->
+    <path d="M130 -70 L130 90" />
+
+  </g>
+</svg>

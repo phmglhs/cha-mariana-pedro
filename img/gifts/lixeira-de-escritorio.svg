@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F5F0"/>
+      <stop offset="100%" stop-color="#EFE8DF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#B98470" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <rect width="640" height="480" fill="url(#dots)"/>
+  <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
+  <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
+  <g transform="translate(320 248)" fill="none" stroke="#8A4F3D" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="160" rx="90" ry="12" fill="#E8DDD3" stroke="none" opacity="0.7"/>
+
+    <path d="M-70 -80 h140 l16 210 h-172 z" fill="#F3EDE5"/>
+    <ellipse cx="0" cy="-80" rx="70" ry="14" fill="#FAF7F2"/>
+    <!-- mesh -->
+    <g stroke="#B98470" stroke-width="2" opacity="0.55">
+      <path d="M-50 -50 h100 M-54 -10 h108 M-58 30 h116 M-62 70 h124"/>
+      <path d="M-40 -80 v200 M-10 -80 v210 M20 -80 v210 M50 -80 v200"/>
+    </g>
+
+  </g>
+</svg>
