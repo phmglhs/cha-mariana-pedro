@@ -354,8 +354,8 @@
           <p class="gift-price">${money.format(gift.price)}</p>
           ${gift.purchased ? `<p class="purchased-by">Presenteado por ${escapeHtml(gift.purchasedBy || "alguém especial")}</p>` : `
             <div class="gift-actions">
-              <button class="btn btn-primary" type="button" data-action="pix"><span class="btn-label-full">Presentear via Pix</span><span class="btn-label-short">Pix</span></button>
-              <a class="btn btn-secondary" data-action="store" href="${gift.storeUrl}" target="_blank" rel="noopener noreferrer"><span class="btn-label-full">Comprar na loja</span><span class="btn-label-short">Loja</span></a>
+              <a class="btn btn-primary" data-action="store" href="${gift.storeUrl}" target="_blank" rel="noopener noreferrer"><span class="btn-label-full">Comprar na loja</span><span class="btn-label-short">Loja</span></a>
+              <button class="btn btn-secondary" type="button" data-action="pix"><span class="btn-label-full">Presentear via Pix</span><span class="btn-label-short">Pix</span></button>
               <button class="gift-confirm-link" type="button" data-action="confirm"><span class="btn-label-full">Eu já escolhi esse</span><span class="btn-label-short">Já escolhi</span></button>
             </div>
           `}

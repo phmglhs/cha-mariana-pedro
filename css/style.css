@@ -1191,6 +1191,15 @@ textarea { resize: vertical; min-height: 110px; }
   font-weight: 400;
   color: var(--ink);
 }
+.gift-ship-note {
+  margin: 8px 0 0;
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--muted);
+}
 .gift-copy-address {
   appearance: none;
   -webkit-appearance: none;
