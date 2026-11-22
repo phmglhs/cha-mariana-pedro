@@ -667,11 +667,18 @@ textarea { resize: vertical; min-height: 110px; }
   color: var(--muted);
 }
 .pix-key {
-  margin: 0 0 6px;
+  margin: 0;
   font-family: var(--font-serif);
   font-size: 1.25rem;
   color: var(--terracotta);
   word-break: break-all;
+  text-align: center;
+}
+.pix-recipient {
+  margin: 2px 0 6px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--muted);
   text-align: center;
 }
 .pix-notice { margin: 4px 0 0; font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--muted); text-align: center; }

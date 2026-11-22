@@ -29,11 +29,11 @@ window.MOCK_EVENT = {
     pixPlaceholderNotice: "Atenção: esta é uma chave Pix de exemplo e será atualizada em breve."
   },
   pix: {
-    key: "chave-pix-exemplo@email.com",
-    keyType: "email",
-    recipientName: "Mariana e Pedro",
-    city: "Belo Horizonte",
-    isPlaceholder: true
+    key: "57e909ad-6217-4f98-bffd-0543a29b6066",
+    keyType: "aleatoria",
+    recipientName: "Mariana Ferreira Redoan",
+    city: "SAO PAULO",
+    isPlaceholder: false
   },
   gifts: [
     { id: "jogo-de-panelas", name: "Jogo de panelas antiaderente", description: "Conjunto completo para o dia a dia na cozinha nova.", price: 449.9, image: "img/gifts/jogo-de-panelas.svg", storeUrl: "https://www.exemplo-loja.com.br/produto/jogo-de-panelas", purchased: false },

@@ -44,8 +44,8 @@
   function buildPayload(options) {
     const key = String(options.key || "").trim();
     if (!key) throw new Error("Chave Pix ausente.");
-    const name = sanitize(options.name || "Mariana e Pedro", 25);
-    const city = sanitize(options.city || "Belo Horizonte", 15).toUpperCase();
+    const name = sanitize(options.name || "Mariana Ferreira Redoan", 25);
+    const city = sanitize(options.city || "SAO PAULO", 15).toUpperCase();
     const txid = sanitize(options.txid || "***", 25).replace(/\s+/g, "") || "***";
     const description = options.description ? sanitize(options.description, 40) : "";
 

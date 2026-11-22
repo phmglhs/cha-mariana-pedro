@@ -60,8 +60,8 @@
     const pix = state.event?.pix || {};
     return {
       key: pix.key,
-      name: pix.recipientName || state.event?.couple?.names,
-      city: pix.city || state.event?.venue?.city,
+      name: pix.recipientName || "Mariana Ferreira Redoan",
+      city: pix.city || "SAO PAULO",
       ...extra,
     };
   }
@@ -118,6 +118,7 @@
     setText("[data-hero-place]", `${venue.name} · Condomínio Exclusive Montreal · ${venue.street} · ${venue.neighborhood} · ${venue.city}`);
     setText("[data-pix-intro]", copy.pixIntro);
     setText("[data-pix-key], [data-modal-key]", pix.key);
+    setText("[data-pix-recipient], [data-modal-recipient]", pix.recipientName || "Mariana Ferreira Redoan");
     setText("[data-pix-notice], [data-modal-notice]", pix.isPlaceholder ? copy.pixPlaceholderNotice : "");
 
     document.querySelectorAll("[data-pix-badge]").forEach((el) => {
