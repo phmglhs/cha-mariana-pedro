@@ -14,7 +14,7 @@
   global.GIFT_FEATURED_IDS = [
     "airfryer",
     "kit-copo-cafe",
-    "adega",
+    "microondas",
     "balde-para-gelo",
     "cafeteira-capsula",
     "tabua-de-corte",
