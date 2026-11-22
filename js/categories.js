@@ -88,6 +88,7 @@
     "espanador-retratil": "Casa & Limpeza",
     "travesseiros": "Cama & Banho",
     "jogo-de-cama": "Cama & Banho",
+    "jogo-de-cama-salvia": "Cama & Banho",
   };
 
   global.giftCategory = function giftCategory(gift) {

@@ -15,18 +15,13 @@
   <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
   <g transform="translate(320 250)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
     <ellipse cx="0" cy="148" rx="200" ry="14" fill="#E8DDD3" stroke="none" opacity="0.55"/>
-    <!-- mattress -->
-    <path d="M-200 68 h400 v52 h-400 z" fill="#E8DDD3"/>
-    <!-- fitted / top sheet -->
-    <path d="M-200 68 q0 -88 78 -88 h244 q78 0 78 88" fill="#F4EEE7"/>
-    <!-- folded blanket -->
-    <path d="M-108 68 q86 -46 216 0 v18 q-124 -38 -216 0 z" fill="#C89A86" opacity="0.92"/>
-    <!-- two pillowcases -->
-    <rect x="-156" y="-46" width="136" height="68" rx="16" fill="#FAF7F2"/>
-    <rect x="20" y="-46" width="136" height="68" rx="16" fill="#FAF7F2"/>
-    <rect x="-144" y="-34" width="112" height="44" rx="10" fill="#EDE2D8" stroke="#B98470" stroke-width="3"/>
-    <rect x="32" y="-34" width="112" height="44" rx="10" fill="#EDE2D8" stroke="#B98470" stroke-width="3"/>
-    <!-- headboard -->
+    <path d="M-200 68 h400 v52 h-400 z" fill="#D9D4CE"/>
+    <path d="M-200 68 q0 -88 78 -88 h244 q78 0 78 88" fill="#E8E4DE"/>
+    <path d="M-108 68 q86 -46 216 0 v18 q-124 -38 -216 0 z" fill="#A8A29A" opacity="0.95"/>
+    <rect x="-156" y="-46" width="136" height="68" rx="16" fill="#F4F2EE"/>
+    <rect x="20" y="-46" width="136" height="68" rx="16" fill="#F4F2EE"/>
+    <rect x="-144" y="-34" width="112" height="44" rx="10" fill="#D5D0C9" stroke="#8A837A" stroke-width="3"/>
+    <rect x="32" y="-34" width="112" height="44" rx="10" fill="#D5D0C9" stroke="#8A837A" stroke-width="3"/>
     <path d="M-188 -68 q0 -66 76 -86 h224 q76 20 76 86" fill="none" stroke="#B39A84" stroke-width="5"/>
   </g>
 </svg>

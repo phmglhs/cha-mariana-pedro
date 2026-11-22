@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F5F0"/>
+      <stop offset="100%" stop-color="#EFE8DF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#B98470" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <rect width="640" height="480" fill="url(#dots)"/>
+  <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
+  <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
+  <g transform="translate(320 250)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="148" rx="200" ry="14" fill="#E8DDD3" stroke="none" opacity="0.55"/>
+    <path d="M-200 68 h400 v52 h-400 z" fill="#D5DDD0"/>
+    <path d="M-200 68 q0 -88 78 -88 h244 q78 0 78 88" fill="#E7EDE4"/>
+    <path d="M-108 68 q86 -46 216 0 v18 q-124 -38 -216 0 z" fill="#8FA389" opacity="0.95"/>
+    <rect x="-156" y="-46" width="136" height="68" rx="16" fill="#F3F6F1"/>
+    <rect x="20" y="-46" width="136" height="68" rx="16" fill="#F3F6F1"/>
+    <rect x="-144" y="-34" width="112" height="44" rx="10" fill="#C9D4C4" stroke="#7E9178" stroke-width="3"/>
+    <rect x="32" y="-34" width="112" height="44" rx="10" fill="#C9D4C4" stroke="#7E9178" stroke-width="3"/>
+    <path d="M-188 -68 q0 -66 76 -86 h224 q76 20 76 86" fill="none" stroke="#B39A84" stroke-width="5"/>
+  </g>
+</svg>
