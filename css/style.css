@@ -751,14 +751,82 @@ textarea { resize: vertical; min-height: 110px; }
 /* ---------- Filtro / ordenação da lista de presentes ---------- */
 .gift-sort {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
   margin: 0 0 14px;
   position: relative;
   z-index: 5;
 }
+.gift-search {
+  position: relative;
+  flex: 1 1 180px;
+  max-width: 360px;
+  min-width: 0;
+}
+.gift-search-input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 36px 8px 14px;
+  border: 1px solid rgba(138, 79, 61, 0.35);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  color: var(--ink);
+  appearance: none;
+  -webkit-appearance: none;
+}
+.gift-search-input::-webkit-search-cancel-button,
+.gift-search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.gift-search-input::placeholder { color: #ad968b; font-style: italic; }
+.gift-search-input:focus {
+  outline: none;
+  border-color: var(--terracotta);
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--terracotta-soft);
+}
+.gift-search-clear {
+  appearance: none;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--terracotta);
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.gift-search-clear:hover { background: var(--terracotta-soft); }
+.gift-search-clear:focus-visible {
+  outline: 1px dashed var(--terracotta);
+  outline-offset: 2px;
+}
+.gift-search-clear[hidden] { display: none; }
+.gift-empty {
+  margin: 4px 0 28px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.gift-empty[hidden] { display: none; }
 .gift-sort-filter {
   position: relative;
+  flex: 0 0 auto;
 }
 .section-gifts.has-sort-open {
   z-index: 45;
@@ -917,6 +985,16 @@ textarea { resize: vertical; min-height: 110px; }
 @media (max-width: 640px) {
   .gift-sort {
     margin: 0 0 10px;
+    gap: 4px;
+  }
+  .gift-search {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+  .gift-search-input {
+    height: 36px;
+    font-size: 1rem;
+    padding: 6px 32px 6px 10px;
   }
   .gift-sort-toggle {
     width: auto;

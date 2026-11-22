@@ -9,6 +9,7 @@
     lastPayload: "",
     lastGiftPayload: "",
     sortMode: "padrao",
+    searchQuery: "",
   };
 
   const SORT_KEY = "cha-mp-gift-sort";
@@ -156,6 +157,33 @@
     return Number.isFinite(n) ? n : null;
   }
 
+  function normalizeText(value) {
+    return String(value || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  }
+
+  function matchingGifts(gifts) {
+    const query = normalizeText(state.searchQuery);
+    if (!query) return gifts;
+    return gifts.filter((gift) => normalizeText(gift.name).includes(query));
+  }
+
+  function syncSearchClear() {
+    const input = document.getElementById("gift-search");
+    const clear = document.getElementById("gift-search-clear");
+    if (!clear) return;
+    clear.hidden = !normalizeText(input && input.value);
+  }
+
+  function applySearch(value) {
+    state.searchQuery = value;
+    syncSearchClear();
+    if (state.event) renderGifts(state.event.gifts);
+  }
+
   function sortedGifts(gifts, mode) {
     const list = gifts.map((gift, index) => ({ gift, index }));
     if (mode === "menor" || mode === "maior") {
@@ -234,7 +262,11 @@
 
   function renderGifts(gifts) {
     giftGrid.innerHTML = "";
-    sortedGifts(gifts, state.sortMode).forEach((gift) => {
+    const list = sortedGifts(matchingGifts(gifts), state.sortMode);
+    const emptyEl = document.getElementById("gift-empty");
+    if (emptyEl) emptyEl.hidden = list.length > 0;
+    if (!list.length) return;
+    list.forEach((gift) => {
       const card = document.createElement("article");
       card.className = "gift-card" + (gift.purchased ? " is-purchased" : "");
       card.dataset.id = gift.id;
@@ -407,6 +439,27 @@
   const sortToggle = document.querySelector(".gift-sort-toggle");
   const sortMenu = document.getElementById("gift-sort-menu");
   const sortFilter = document.querySelector(".gift-sort-filter");
+
+  const searchInput = document.getElementById("gift-search");
+  const searchClear = document.getElementById("gift-search-clear");
+  if (searchInput) {
+    searchInput.addEventListener("input", () => applySearch(searchInput.value));
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && searchInput.value) {
+        event.preventDefault();
+        searchInput.value = "";
+        applySearch("");
+      }
+    });
+  }
+  if (searchClear && searchInput) {
+    searchClear.addEventListener("click", () => {
+      searchInput.value = "";
+      applySearch("");
+      searchInput.focus();
+    });
+  }
+  syncSearchClear();
 
   if (sortToggle && sortMenu) {
     sortToggle.addEventListener("click", (event) => {

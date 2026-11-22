@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Sacramento&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/style.css?v=26" />
+  <link rel="stylesheet" href="css/style.css?v=27" />
 </head>
 <body>
   <div class="preview-banner" id="preview-banner" hidden>
@@ -170,6 +170,10 @@
           </aside>
         </div>
         <div class="gift-sort">
+          <div class="gift-search">
+            <input type="search" id="gift-search" class="gift-search-input" placeholder="Buscar presente…" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-label="Buscar presente" />
+            <button type="button" class="gift-search-clear" id="gift-search-clear" hidden aria-label="Limpar busca">×</button>
+          </div>
           <div class="gift-sort-filter">
             <button type="button" class="gift-sort-toggle" id="gift-sort-toggle" aria-label="Ordenar por preço" aria-haspopup="menu" aria-expanded="false" aria-controls="gift-sort-menu">
               <svg class="gift-sort-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6.2 7.6V20l-3.6-2v-5.4L4 5z"/></svg>
@@ -183,6 +187,7 @@
             </div>
           </div>
         </div>
+        <p class="gift-empty" id="gift-empty" hidden role="status">Nenhum presente encontrado.</p>
         <div class="gift-grid" id="gift-grid"></div>
       </div>
     </section>
@@ -252,11 +257,11 @@
 
   <div class="toast" id="toast" hidden role="status"></div>
 
-  <script src="js/config.js?v=26"></script>
-  <script src="js/qrcode.min.js?v=26"></script>
-  <script src="js/pix.js?v=26"></script>
-  <script src="js/mock-data.js?v=26"></script>
-  <script src="js/api.js?v=26"></script>
-  <script src="js/app.js?v=26"></script>
+  <script src="js/config.js?v=27"></script>
+  <script src="js/qrcode.min.js?v=27"></script>
+  <script src="js/pix.js?v=27"></script>
+  <script src="js/mock-data.js?v=27"></script>
+  <script src="js/api.js?v=27"></script>
+  <script src="js/app.js?v=27"></script>
 </body>
 </html>
