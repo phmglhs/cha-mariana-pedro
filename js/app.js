@@ -113,8 +113,9 @@
     setText("[data-hero-lead]", copy.heroSubtitle);
     setText("[data-date-full]", `${ev.weekdayDisplay}, ${ev.dateDisplay}`);
     setText("[data-time-full]", `Às ${ev.timeDisplay}`);
-    setText("[data-venue-name]", venue.name);
-    setText("[data-venue-address]", `${venue.street} — ${venue.neighborhood}<br>${venue.city} — ${venue.state}`, true);
+    setText("[data-venue-name]", `${venue.name} — Condomínio Exclusive Montreal`);
+    setText("[data-venue-address]", `${venue.street} — ${venue.neighborhood}<br>${venue.city} — ${venue.state}, 30775-460`, true);
+    setText("[data-hero-place]", `${venue.name} · Condomínio Exclusive Montreal · ${venue.street} · ${venue.neighborhood} · ${venue.city}`);
     setText("[data-pix-intro]", copy.pixIntro);
     setText("[data-pix-key], [data-modal-key]", pix.key);
     setText("[data-pix-notice], [data-modal-notice]", pix.isPlaceholder ? copy.pixPlaceholderNotice : "");
@@ -417,6 +418,20 @@
       showToast("Não foi possível copiar. Selecione o texto manualmente.");
     }
   }
+
+  document.querySelectorAll("[data-copy-address]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = btn.getAttribute("data-copy-text") || "";
+      const original = btn.textContent;
+      await copyText(text, "Endereço copiado.");
+      btn.textContent = "Copiado!";
+      btn.classList.add("is-copied");
+      window.setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove("is-copied");
+      }, 2000);
+    });
+  });
 
   document.querySelectorAll("[data-copy-pix]").forEach((btn) => {
     btn.addEventListener("click", () => copyText(state.event?.pix?.key || "", "Chave Pix copiada."));

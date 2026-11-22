@@ -20,11 +20,11 @@
   <meta name="twitter:image" content="https://phmglhs.github.io/cha-mariana-pedro/img/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Sacramento&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Sacramento&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="img/favicon.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180" />
-  <link rel="stylesheet" href="css/style.css?v=29" />
+  <link rel="stylesheet" href="css/style.css?v=30" />
 </head>
 <body>
   <div class="preview-banner" id="preview-banner" hidden>
@@ -66,7 +66,7 @@
           <p class="hero-lead" data-hero-lead>Com o coração cheio de alegria, convidamos você para celebrar conosco o nosso noivado e a nossa nova casa!</p>
           <div class="hero-meta">
             <p class="hero-date" data-hero-date>Sábado, 30 de janeiro de 2027 · 16h</p>
-            <p class="hero-place">Salão de festas · Rua Psi, 185 · Caiçara · Belo Horizonte</p>
+            <p class="hero-place" data-hero-place>Salão de festas · Condomínio Exclusive Montreal · Rua Psi, 185 · Caiçara · Belo Horizonte</p>
           </div>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="#presenca">Confirmar presença</a>
@@ -103,8 +103,8 @@
           </article>
           <article class="info-card">
             <h3>Onde</h3>
-            <p class="info-main" data-venue-name>Salão de festas</p>
-            <p data-venue-address>Rua Psi, 185 — Caiçara<br>Belo Horizonte — MG</p>
+            <p class="info-main" data-venue-name>Salão de festas — Condomínio Exclusive Montreal</p>
+            <p data-venue-address>Rua Psi, 185 — Caiçara<br>Belo Horizonte — MG, 30775-460</p>
           </article>
         </div>
 
@@ -128,7 +128,7 @@
         <p class="eyebrow script">Esperamos você</p>
         <h2>Confirmação de presença</h2>
         <div class="ornament" aria-hidden="true"><span></span></div>
-        <p class="section-lead">Sua presença é muito importante pra nós! Confirme sua presença, mesmo que não possa vir, para organizarmos tudo com carinho.<span data-rsvp-deadline hidden></span></p>
+        <p class="section-lead">Sua presença é muito importante pra nós!<br>Para organizarmos tudo com carinho, confirme sua presença o quanto antes&nbsp;:)<span data-rsvp-deadline hidden></span></p>
 
         <form id="rsvp-form" class="rsvp-form" novalidate>
           <label>
@@ -150,7 +150,7 @@
           </fieldset>
           <label>
             <span>Mensagem <em>(opcional)</em></span>
-            <textarea name="message" rows="4" maxlength="500" placeholder="Um carinho, um recado, uma restrição alimentar…"></textarea>
+            <textarea name="message" rows="4" maxlength="500" placeholder="Uma observação, um carinho, um recado…"></textarea>
           </label>
           <p class="form-error" id="rsvp-error" hidden></p>
           <button class="btn btn-primary" type="submit">Confirmar presença</button>
@@ -170,16 +170,23 @@
         <h2>Lista de presentes</h2>
         <div class="ornament" aria-hidden="true"><span></span></div>
         <div class="gifts-intro">
-          <p class="gifts-lead-hook">Sua presença é o nosso maior presente!</p>
-          <p class="gifts-lead-body">Mas, se quiser nos presentear, preparamos algumas sugestões para o nosso lar. Você pode comprar direto na loja pelo link abaixo ou enviar o valor via Pix.</p>
+          <p class="gifts-lead-hook"><strong>Sua presença é o nosso maior presente!</strong></p>
+          <p class="gifts-lead-body">Mas, se quiser nos presentear, preparamos algumas sugestões para o nosso lar. Para facilitar, inserimos os links oficiais do produto. Você pode comprar direto pelo link ou enviar o valor via Pix.</p>
           <aside class="gift-info" aria-labelledby="gift-info-title">
             <h3 class="gift-info-title" id="gift-info-title">Informações importantes</h3>
             <ul class="gift-info-list">
-              <li>Depois de comprar ou enviar o Pix, clique em <strong>“Eu já escolhi esse”</strong> no presente escolhido. Assim ele aparece como já presenteado e evita que outra pessoa compre o mesmo item.</li>
+              <li><strong>Depois de comprar:</strong> Depois de comprar ou enviar o Pix, clique em <strong>“Eu já escolhi esse”</strong> no presente escolhido. Assim ele aparece como já presenteado e evita que outra pessoa compre o mesmo item.</li>
               <li>Se preferir, a compra pode ser enviada direto para o nosso apartamento:
-                <address class="gift-info-address">Rua Psi, 185, Caiçara, Belo Horizonte, CEP 30775-460<br>Apartamento 1002B (Mariana Redoan ou Pedro Magalhães)</address>
+                <div class="gift-ship-box">
+                  <address class="gift-info-address">
+                    <strong>Condomínio Exclusive Montreal</strong><br>
+                    <strong>Rua Psi, 185, Caiçara, Belo Horizonte, CEP 30775-460</strong><br>
+                    <strong>Apartamento 1002B</strong> <span class="gift-ship-names">(Mariana Redoan ou Pedro Magalhães)</span>
+                  </address>
+                  <button type="button" class="gift-copy-address" data-copy-address data-copy-text="Rua Psi, 185 - Caiçara, Belo Horizonte - MG, CEP 30775-460, Apto 1002B">Copiar endereço</button>
+                </div>
               </li>
-              <li>Todos os eletrodomésticos devem ser <strong>127V</strong>, a voltagem da nossa casa.</li>
+              <li><strong>Voltagem:</strong> Todos os eletrodomésticos devem ser 127V, já inserimos os links com o produto correto.</li>
             </ul>
           </aside>
         </div>
@@ -283,12 +290,12 @@
 
   <div class="toast" id="toast" hidden role="status"></div>
 
-  <script src="js/config.js?v=29"></script>
-  <script src="js/qrcode.min.js?v=29"></script>
-  <script src="js/pix.js?v=29"></script>
-  <script src="js/mock-data.js?v=29"></script>
-  <script src="js/api.js?v=29"></script>
-  <script src="js/categories.js?v=29"></script>
-  <script src="js/app.js?v=29"></script>
+  <script src="js/config.js?v=30"></script>
+  <script src="js/qrcode.min.js?v=30"></script>
+  <script src="js/pix.js?v=30"></script>
+  <script src="js/mock-data.js?v=30"></script>
+  <script src="js/api.js?v=30"></script>
+  <script src="js/categories.js?v=30"></script>
+  <script src="js/app.js?v=30"></script>
 </body>
 </html>

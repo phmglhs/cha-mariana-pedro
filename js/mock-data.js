@@ -16,7 +16,7 @@ window.MOCK_EVENT = {
     neighborhood: "Caiçara",
     city: "Belo Horizonte",
     state: "MG",
-    fullAddress: "Rua Psi, 185 - Caiçara, Belo Horizonte - MG",
+    fullAddress: "Condomínio Exclusive Montreal — Rua Psi, 185 - Caiçara, Belo Horizonte - MG, 30775-460",
     mapsQuery: "Rua Psi, 185, Caiçaras, Belo Horizonte, MG, Brasil",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Psi%2C+185%2C+Cai%C3%A7aras%2C+Belo+Horizonte%2C+MG",
     wazeUrl: "https://waze.com/ul?q=Rua%20Psi%2C%20185%2C%20Cai%C3%A7aras%2C%20Belo%20Horizonte%20-%20MG&navigate=yes",
@@ -24,7 +24,7 @@ window.MOCK_EVENT = {
   },
   copy: {
     heroSubtitle: "Com o coração cheio de alegria, convidamos você para celebrar conosco o nosso noivado e a nossa nova casa!",
-    giftsIntro: "Sua presença é o nosso maior presente! Mas, se quiser nos presentear, preparamos algumas sugestões para o nosso lar. Você pode comprar direto na loja pelo link abaixo ou enviar o valor via Pix.",
+    giftsIntro: "Sua presença é o nosso maior presente! Mas, se quiser nos presentear, preparamos algumas sugestões para o nosso lar. Para facilitar, inserimos os links oficiais do produto. Você pode comprar direto pelo link ou enviar o valor via Pix.",
     pixIntro: "Se preferir nos presentear com um valor em dinheiro, use o Pix abaixo. Qualquer quantia será recebida com muito carinho.",
     pixPlaceholderNotice: "Atenção: esta é uma chave Pix de exemplo e será atualizada em breve."
   },

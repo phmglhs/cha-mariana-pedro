@@ -1110,10 +1110,12 @@ textarea { resize: vertical; min-height: 110px; }
   margin: 0 auto 10px;
   font-family: var(--font-serif);
   font-style: italic;
+  font-weight: 600;
   font-size: clamp(1.28rem, 2.6vw, 1.55rem);
   line-height: 1.4;
   color: var(--terracotta);
 }
+.gifts-lead-hook strong { font-weight: 600; }
 .gifts-lead-body {
   margin: 0 auto 28px;
   max-width: 600px;
@@ -1166,13 +1168,59 @@ textarea { resize: vertical; min-height: 110px; }
   font-weight: 600;
   color: var(--terracotta-dark);
 }
+.gift-ship-box {
+  margin: 10px 0 0;
+  padding: 14px 16px 12px;
+  background: rgba(138, 79, 61, 0.07);
+  border: 1px solid rgba(138, 79, 61, 0.18);
+  border-radius: 10px;
+}
 .gift-info-address {
   display: block;
-  margin: 8px 0 0;
+  margin: 0;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.gift-info-address strong {
+  font-weight: 600;
+  color: var(--terracotta-dark);
+}
+.gift-ship-names {
+  font-weight: 400;
+  color: var(--ink);
+}
+.gift-copy-address {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid rgba(138, 79, 61, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
   color: var(--terracotta);
-  line-height: 1.45;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.gift-copy-address:hover,
+.gift-copy-address:focus-visible {
+  border-color: var(--terracotta);
+  background: #fff;
+  outline: none;
+}
+.gift-copy-address.is-copied {
+  border-color: var(--terracotta);
+  background: var(--terracotta);
+  color: var(--paper-light);
 }
 @media (max-width: 640px) {
   .gifts-intro { margin: 0 auto 24px; padding: 0 4px; }
@@ -1180,6 +1228,8 @@ textarea { resize: vertical; min-height: 110px; }
   .gifts-lead-body { font-size: 1.02rem; margin-bottom: 22px; }
   .gift-info { padding: 18px 16px 16px; outline-offset: 3px; }
   .gift-info-list { font-size: 1rem; gap: 12px; }
+  .gift-ship-box { padding: 12px 12px 10px; }
+  .gift-copy-address { width: 100%; min-height: 44px; }
   .ribbon {
     white-space: normal;
     text-align: center;
