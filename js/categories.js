@@ -13,7 +13,7 @@
   /* Ordem dos destaques no sort "Padrão". Fácil de reordenar ou trocar. */
   global.GIFT_FEATURED_IDS = [
     "airfryer",
-    "espremedor-de-limao",
+    "kit-copo-cafe",
     "adega",
     "balde-para-gelo",
     "cafeteira-capsula",
