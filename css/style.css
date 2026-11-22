@@ -1102,3 +1102,4 @@ textarea { resize: vertical; min-height: 110px; }
     line-height: 1.15;
   }
 }
+.gift-desc:empty{display:none;}
