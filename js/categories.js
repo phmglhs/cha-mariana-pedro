@@ -1,0 +1,85 @@
+/* Fallback de categorias por id, usado enquanto o Apps Script
+   publicado ainda não envia o campo category da planilha. */
+(function (global) {
+  global.GIFT_CATEGORY_ORDER = [
+    "Eletrodomésticos",
+    "Cozinha",
+    "Mesa & Bar",
+    "Organização",
+    "Casa & Limpeza",
+    "Cama & Banho"
+  ];
+
+  global.GIFT_CATEGORIES = {
+    "liquidificador": "Eletrodomésticos",
+    "airfryer": "Eletrodomésticos",
+    "cafeteira": "Eletrodomésticos",
+    "microondas": "Eletrodomésticos",
+    "forno-eletrico": "Eletrodomésticos",
+    "purificador": "Eletrodomésticos",
+    "lava-loucas": "Eletrodomésticos",
+    "lava-e-seca": "Eletrodomésticos",
+    "adega": "Eletrodomésticos",
+    "mixer-conjunto": "Eletrodomésticos",
+    "sanduicheira": "Eletrodomésticos",
+    "panela-de-pressao-eletrica": "Eletrodomésticos",
+    "pipoqueira": "Eletrodomésticos",
+    "cafeteira-capsula": "Eletrodomésticos",
+    "conjunto-tigela-inox": "Cozinha",
+    "escorredor-de-louca": "Cozinha",
+    "jogo-de-panela-inox": "Cozinha",
+    "escorredor-de-massas": "Cozinha",
+    "amassador-de-batata-e-legumes": "Cozinha",
+    "conjunto-espatula-manteiga": "Cozinha",
+    "luva-de-silicone": "Cozinha",
+    "descanso-de-panela-silicone": "Cozinha",
+    "kit-peneiras": "Cozinha",
+    "moedor-de-pimenta": "Cozinha",
+    "forma-de-bolo": "Cozinha",
+    "kit-assadeira": "Cozinha",
+    "conjunto-forma-quadrada-de-silicone": "Cozinha",
+    "forma-redonda-silicone": "Cozinha",
+    "conjunto-bowl-de-vidro": "Cozinha",
+    "frigideira": "Cozinha",
+    "kit-utensilios-de-cozinha": "Cozinha",
+    "aparelho-de-jantar": "Mesa & Bar",
+    "kit-copos-canelados": "Mesa & Bar",
+    "kit-copo-cafe": "Mesa & Bar",
+    "kit-taca-sobremesa": "Mesa & Bar",
+    "kit-taca-vinho": "Mesa & Bar",
+    "kit-vinho": "Mesa & Bar",
+    "jarra-de-vidro": "Mesa & Bar",
+    "jarra-de-vidro-2": "Mesa & Bar",
+    "aparelho-de-jantar-30-pecas": "Mesa & Bar",
+    "jogo-de-talheres": "Mesa & Bar",
+    "queijeira": "Mesa & Bar",
+    "porta-guardanapos": "Mesa & Bar",
+    "kit-17-potes-hermeticos": "Organização",
+    "kit-8-potes-hermeticos": "Organização",
+    "kit-potes-plastico": "Organização",
+    "kit-pote-marmita": "Organização",
+    "forro-de-gaveta": "Organização",
+    "organizador-de-geladeira-triplo": "Organização",
+    "organizador-de-geladeira-cesto": "Organização",
+    "organizador-de-geladeira-escorredor": "Organização",
+    "organizador-de-geladeira-duplo": "Organização",
+    "organizador-de-ovos": "Organização",
+    "organizador-geladeira-porta-frios": "Organização",
+    "banqueta-dobravel": "Organização",
+    "vaporizador": "Casa & Limpeza",
+    "ferro-de-passar": "Casa & Limpeza",
+    "mop-spray": "Casa & Limpeza",
+    "lixeira-de-escritorio": "Casa & Limpeza",
+    "lixeira-dupla": "Casa & Limpeza",
+    "lixeira-banheiro-1": "Casa & Limpeza",
+    "lixeira-banheiro-2": "Casa & Limpeza",
+    "cobertor-de-microfibra": "Cama & Banho",
+    "pillow-top": "Cama & Banho"
+  };
+
+  global.giftCategory = function giftCategory(gift) {
+    const fromApi = String((gift && (gift.category || gift.categoria)) || "").trim();
+    if (fromApi) return fromApi;
+    return (global.GIFT_CATEGORIES && gift && gift.id && global.GIFT_CATEGORIES[gift.id]) || "";
+  };
+})(window);

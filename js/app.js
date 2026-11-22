@@ -10,7 +10,14 @@
     lastGiftPayload: "",
     sortMode: "padrao",
     searchQuery: "",
+    category: "todos",
   };
+
+  const MAP_ADDRESS = "Rua Psi, 185 - Caiçara, Belo Horizonte - MG, 30775-460";
+  const MAP_QUERY = encodeURIComponent(MAP_ADDRESS);
+  const MAP_EMBED = "https://maps.google.com/maps?q=" + MAP_QUERY + "&z=17&hl=pt-BR&output=embed";
+  const MAP_GOOGLE = "https://www.google.com/maps/search/?api=1&query=" + MAP_QUERY;
+  const MAP_WAZE = "https://waze.com/ul?q=" + MAP_QUERY + "&navigate=yes";
 
   const SORT_KEY = "cha-mp-gift-sort";
   const SORT_MODES = ["padrao", "menor", "maior"];
@@ -115,15 +122,20 @@
     document.querySelectorAll("[data-pix-badge]").forEach((el) => {
       el.hidden = !pix.isPlaceholder;
     });
-    document.querySelectorAll("[data-maps-link]").forEach((a) => { a.href = venue.googleMapsUrl; });
-    document.querySelectorAll("[data-waze-link]").forEach((a) => { a.href = venue.wazeUrl; });
+    document.querySelectorAll("[data-maps-link]").forEach((a) => { a.href = MAP_GOOGLE; });
+    document.querySelectorAll("[data-waze-link]").forEach((a) => { a.href = MAP_WAZE; });
     const iframe = document.getElementById("mapa");
-    if (iframe && venue.mapsEmbedUrl) iframe.src = venue.mapsEmbedUrl;
+    if (iframe) iframe.src = MAP_EMBED;
 
     const banner = document.getElementById("preview-banner");
     if (banner) banner.hidden = !api.isMock();
 
+    event.gifts = (event.gifts || []).map((gift) => Object.assign({}, gift, {
+      category: window.giftCategory ? window.giftCategory(gift) : (gift.category || ""),
+    }));
+
     startCountdown(ev.datetimeISO);
+    renderCategoryChips(event.gifts);
     renderGifts(event.gifts);
     refreshCashQr();
   }
@@ -166,9 +178,64 @@
   }
 
   function matchingGifts(gifts) {
+    let list = gifts || [];
+    if (state.category && state.category !== "todos") {
+      list = list.filter((gift) => gift.category === state.category);
+    }
     const query = normalizeText(state.searchQuery);
-    if (!query) return gifts;
-    return gifts.filter((gift) => normalizeText(gift.name).includes(query));
+    if (!query) return list;
+    return list.filter((gift) => normalizeText(gift.name).includes(query));
+  }
+
+  function renderCategoryChips(gifts) {
+    const root = document.getElementById("gift-categories");
+    if (!root) return;
+    const order = window.GIFT_CATEGORY_ORDER || [];
+    const present = new Set((gifts || []).map((gift) => gift.category).filter(Boolean));
+    const labels = ["Todos", ...order.filter((name) => present.has(name))];
+    root.innerHTML = "";
+    labels.forEach((label) => {
+      const value = label === "Todos" ? "todos" : label;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "gift-cat-chip";
+      btn.dataset.category = value;
+      btn.textContent = label;
+      const active = state.category === value;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", String(active));
+      btn.addEventListener("click", () => applyCategory(value));
+      root.appendChild(btn);
+    });
+  }
+
+  function applyCategory(value) {
+    state.category = value;
+    document.querySelectorAll(".gift-cat-chip").forEach((btn) => {
+      const active = btn.dataset.category === state.category;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", String(active));
+    });
+    if (state.event) renderGifts(state.event.gifts);
+  }
+
+  function hideGiftStatus() {
+    const status = document.getElementById("gift-status");
+    if (status) status.hidden = true;
+  }
+
+  function showGiftError(message) {
+    const status = document.getElementById("gift-status");
+    if (!status) return;
+    status.hidden = false;
+    status.classList.add("is-error");
+    const text = status.querySelector(".gift-loading");
+    if (text) text.textContent = message;
+    const skeleton = status.querySelector(".gift-skeleton-grid");
+    if (skeleton) skeleton.hidden = true;
+    if (giftGrid) giftGrid.hidden = true;
+    const emptyEl = document.getElementById("gift-empty");
+    if (emptyEl) emptyEl.hidden = true;
   }
 
   function syncSearchClear() {
@@ -261,11 +328,16 @@
   }
 
   function renderGifts(gifts) {
+    hideGiftStatus();
     giftGrid.innerHTML = "";
     const list = sortedGifts(matchingGifts(gifts), state.sortMode);
     const emptyEl = document.getElementById("gift-empty");
     if (emptyEl) emptyEl.hidden = list.length > 0;
-    if (!list.length) return;
+    if (!list.length) {
+      giftGrid.hidden = true;
+      return;
+    }
+    giftGrid.hidden = false;
     list.forEach((gift) => {
       const card = document.createElement("article");
       card.className = "gift-card" + (gift.purchased ? " is-purchased" : "");
@@ -396,10 +468,25 @@
     const errorEl = document.getElementById("rsvp-error");
     errorEl.hidden = true;
     const form = e.target;
+    const name = form.name.value.trim();
+    const attendingInput = form.querySelector('input[name="attending"]:checked');
+    if (!name) {
+      errorEl.textContent = "Por favor, digite o seu nome.";
+      errorEl.hidden = false;
+      form.name.focus();
+      return;
+    }
+    if (!attendingInput) {
+      errorEl.textContent = "Por favor, escolha se você poderá estar presente.";
+      errorEl.hidden = false;
+      const first = form.querySelector('input[name="attending"]');
+      if (first) first.focus();
+      return;
+    }
     const payload = {
-      name: form.name.value.trim(),
+      name,
       guests: 1,
-      attending: form.attending.value === "true",
+      attending: attendingInput.value === "true",
       message: form.message.value.trim(),
     };
     try {
@@ -503,5 +590,6 @@
     fillEvent(event);
   }).catch(() => {
     showToast("Não foi possível carregar os dados do evento.");
+    showGiftError("Não foi possível carregar a lista de presentes. Atualize a página e tente de novo.");
   });
 })();

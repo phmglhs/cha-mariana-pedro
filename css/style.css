@@ -1014,8 +1014,8 @@ textarea { resize: vertical; min-height: 110px; }
     padding-right: 12px;
   }
   .gift-grid {
-    gap: 8px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .gift-card {
     min-width: 0;
@@ -1026,39 +1026,45 @@ textarea { resize: vertical; min-height: 110px; }
     margin: 0;
   }
   .gift-body {
-    padding: 7px 4px 5px;
-    gap: 2px;
+    padding: 10px 8px 8px;
+    gap: 4px;
   }
   .gift-body h3 {
-    font-size: clamp(0.58rem, 2.7vw, 0.88rem);
+    font-size: 0.95rem;
     letter-spacing: 0.03em;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
-    hyphens: auto;
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    hyphens: manual;
+    text-wrap: pretty;
   }
   .gift-desc { display: none; }
   .gift-price {
-    margin: 1px 0 3px;
-    font-size: clamp(0.58rem, 2.5vw, 0.8rem);
-    letter-spacing: 0.04em;
+    margin: 2px 0 6px;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
   }
-  .gift-actions { gap: 4px; }
+  .gift-actions { gap: 6px; }
   .gift-actions .btn-label-full { display: none; }
   .gift-actions .btn-label-short { display: inline; }
   .gift-actions .btn {
-    min-height: 28px;
-    padding: 1px 2px;
-    border-width: 5px;
-    font-size: 0.52rem;
-    letter-spacing: 0.08em;
+    min-height: 44px;
+    padding: 8px 6px;
+    border-width: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     line-height: 1.1;
     gap: 0;
   }
   .gift-confirm-link {
-    padding: 3px 0 1px;
-    font-size: 0.58rem;
-    letter-spacing: 0.01em;
-    text-underline-offset: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    width: 100%;
+    padding: 8px 4px;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    text-underline-offset: 3px;
     line-height: 1.25;
     white-space: normal;
   }
@@ -1181,3 +1187,106 @@ textarea { resize: vertical; min-height: 110px; }
   }
 }
 .gift-desc:empty{display:none;}
+
+
+/* ---------- Categorias e estado de carregamento ---------- */
+.gift-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+.gift-cat-chip {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(138, 79, 61, 0.4);
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--terracotta);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  min-height: 40px;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.gift-cat-chip:hover,
+.gift-cat-chip:focus-visible {
+  border-color: var(--terracotta);
+  background: #fff;
+  outline: none;
+}
+.gift-cat-chip.is-active,
+.gift-cat-chip[aria-pressed="true"] {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--paper-light);
+}
+.gift-status {
+  margin: 8px 0 24px;
+  text-align: center;
+}
+.gift-loading {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.gift-status.is-error .gift-loading {
+  font-style: normal;
+  color: var(--terracotta-dark);
+}
+.gift-skeleton-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+}
+.gift-skeleton-card {
+  min-height: 260px;
+  background:
+    linear-gradient(180deg, rgba(138, 79, 61, 0.06), rgba(138, 79, 61, 0.02));
+  border: 1px solid rgba(138, 79, 61, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+.gift-skeleton-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: translateX(-100%);
+  animation: gift-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes gift-shimmer {
+  100% { transform: translateX(100%); }
+}
+@media (max-width: 640px) {
+  .gift-categories {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -12px 14px;
+    padding: 2px 12px 8px;
+    gap: 8px;
+  }
+  .gift-categories::-webkit-scrollbar { display: none; }
+  .gift-cat-chip {
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 0.66rem;
+  }
+  .gift-skeleton-grid {
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gift-skeleton-card { min-height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gift-skeleton-card::after { animation: none; }
+}

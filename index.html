@@ -5,12 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#F3F1EC" />
   <title>Chá Bar &amp; Noivado · Mariana e Pedro</title>
-  <meta name="description" content="Celebre conosco o chá bar e noivado de Mariana e Pedro, no dia 30 de janeiro de 2027, em Belo Horizonte." />
+  <meta name="description" content="Celebre conosco o chá bar e noivado de Mariana e Pedro, no dia 30 de janeiro de 2027, às 16h, em Belo Horizonte." />
+  <meta property="og:title" content="Chá Bar &amp; Noivado · Mariana &amp; Pedro" />
+  <meta property="og:description" content="Celebre conosco no dia 30 de janeiro de 2027, às 16h, em Belo Horizonte." />
+  <meta property="og:url" content="https://phmglhs.github.io/cha-mariana-pedro/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="https://phmglhs.github.io/cha-mariana-pedro/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chá Bar &amp; Noivado · Mariana &amp; Pedro" />
+  <meta name="twitter:description" content="Celebre conosco no dia 30 de janeiro de 2027, às 16h, em Belo Horizonte." />
+  <meta name="twitter:image" content="https://phmglhs.github.io/cha-mariana-pedro/img/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Sacramento&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/style.css?v=27" />
+  <link rel="icon" href="img/favicon.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="css/style.css?v=28" />
 </head>
 <body>
   <div class="preview-banner" id="preview-banner" hidden>
@@ -99,12 +113,12 @@
             id="mapa"
             title="Mapa do local da festa"
             referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?origin=mfe&pb=!1m2!2m1!1sRua+Psi,+185,+Cai%C3%A7aras,+Belo+Horizonte,+MG"
+            src="https://maps.google.com/maps?q=Rua+Psi%2C+185+-+Cai%C3%A7ara%2C+Belo+Horizonte+-+MG%2C+30775-460&amp;z=17&amp;hl=pt-BR&amp;output=embed"
           ></iframe>
         </div>
         <div class="map-actions">
-          <a class="btn btn-secondary" data-maps-link target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=Rua+Psi%2C+185%2C+Cai%C3%A7ara%2C+Belo+Horizonte%2C+MG">Abrir no Google Maps</a>
-          <a class="btn btn-ghost" data-waze-link target="_blank" rel="noopener noreferrer" href="https://waze.com/ul?q=Rua%20Psi%2C%20185%2C%20Cai%C3%A7ara%2C%20Belo%20Horizonte%20-%20MG&navigate=yes">Abrir no Waze</a>
+          <a class="btn btn-secondary" data-maps-link target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=Rua+Psi%2C+185+-+Cai%C3%A7ara%2C+Belo+Horizonte+-+MG%2C+30775-460">Abrir no Google Maps</a>
+          <a class="btn btn-ghost" data-waze-link target="_blank" rel="noopener noreferrer" href="https://waze.com/ul?q=Rua%20Psi%2C%20185%20-%20Cai%C3%A7ara%2C%20Belo%20Horizonte%20-%20MG%2C%2030775-460&navigate=yes">Abrir no Waze</a>
         </div>
       </div>
     </section>
@@ -125,7 +139,7 @@
             <legend>Podemos contar com você?</legend>
             <div class="choice-row">
               <label class="choice">
-                <input type="radio" name="attending" value="true" required checked />
+                <input type="radio" name="attending" value="true" required />
                 <span>Sim, estarei lá</span>
               </label>
               <label class="choice">
@@ -187,8 +201,20 @@
             </div>
           </div>
         </div>
+        <div class="gift-categories" id="gift-categories" role="group" aria-label="Filtrar por categoria"></div>
+        <div class="gift-status" id="gift-status" role="status">
+          <p class="gift-loading">Carregando presentes…</p>
+          <div class="gift-skeleton-grid" aria-hidden="true">
+            <div class="gift-skeleton-card"></div>
+            <div class="gift-skeleton-card"></div>
+            <div class="gift-skeleton-card"></div>
+            <div class="gift-skeleton-card"></div>
+            <div class="gift-skeleton-card"></div>
+            <div class="gift-skeleton-card"></div>
+          </div>
+        </div>
         <p class="gift-empty" id="gift-empty" hidden role="status">Nenhum presente encontrado.</p>
-        <div class="gift-grid" id="gift-grid"></div>
+        <div class="gift-grid" id="gift-grid" hidden></div>
       </div>
     </section>
 
@@ -257,11 +283,12 @@
 
   <div class="toast" id="toast" hidden role="status"></div>
 
-  <script src="js/config.js?v=27"></script>
-  <script src="js/qrcode.min.js?v=27"></script>
-  <script src="js/pix.js?v=27"></script>
-  <script src="js/mock-data.js?v=27"></script>
-  <script src="js/api.js?v=27"></script>
-  <script src="js/app.js?v=27"></script>
+  <script src="js/config.js?v=28"></script>
+  <script src="js/qrcode.min.js?v=28"></script>
+  <script src="js/pix.js?v=28"></script>
+  <script src="js/mock-data.js?v=28"></script>
+  <script src="js/api.js?v=28"></script>
+  <script src="js/categories.js?v=28"></script>
+  <script src="js/app.js?v=28"></script>
 </body>
 </html>
