@@ -10,6 +10,19 @@
     return !scriptUrl();
   }
 
+  function redactGift(gift) {
+    if (!gift || typeof gift !== "object") return gift;
+    const copy = { ...gift };
+    delete copy.purchasedBy;
+    return copy;
+  }
+
+  function redactEvent(data) {
+    if (!data || typeof data !== "object") return data;
+    if (!Array.isArray(data.gifts)) return data;
+    return { ...data, gifts: data.gifts.map(redactGift) };
+  }
+
   function loadMockStore() {
     try {
       return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || { rsvps: [], purchases: {} };
@@ -27,8 +40,8 @@
     const store = loadMockStore();
     base.gifts = base.gifts.map((gift) => {
       const purchase = store.purchases[gift.id];
-      if (!purchase) return { ...gift, purchased: false, purchasedBy: null, purchasedAt: null, purchaseMethod: null };
-      return { ...gift, purchased: true, purchasedBy: purchase.name, purchasedAt: purchase.at, purchaseMethod: purchase.method };
+      if (!purchase) return { ...gift, purchased: false, purchasedAt: null, purchaseMethod: null };
+      return { ...gift, purchased: true, purchasedAt: purchase.at, purchaseMethod: purchase.method };
     });
     return base;
   }
@@ -60,11 +73,11 @@
       const res = await fetch(url, { method: "GET", credentials: "omit" });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      return data;
+      return redactEvent(data);
     } catch (err) {
       const data = await jsonp(url);
       if (data && data.error) throw new Error(data.error);
-      return data;
+      return redactEvent(data);
     }
   }
 
@@ -78,6 +91,7 @@
       body: JSON.stringify(payload),
     });
     const data = await res.json();
+    if (data && data.gift) data.gift = redactGift(data.gift);
     if (data.error && !data.gift) {
       const error = new Error(data.error);
       error.data = data;
@@ -117,11 +131,24 @@
         error.data = { gift: event.gifts.find((g) => g.id === id) };
         throw error;
       }
-      store.purchases[id] = { name, method: payload.method === "store" ? "store" : "pix", at: new Date().toISOString() };
+      store.purchases[id] = {
+        name,
+        message: String(payload.message || "").trim(),
+        method: payload.method === "store" ? "store" : "pix",
+        at: new Date().toISOString()
+      };
       saveMockStore(store);
       return { ok: true, gift: cloneEvent().gifts.find((g) => g.id === id) };
     }
-    return post({ action: "comprar", id, name: payload.name, method: payload.method });
+    const data = await post({
+      action: "comprar",
+      id,
+      name: payload.name,
+      method: payload.method,
+      message: payload.message || ""
+    });
+    if (data && data.gift) data.gift = redactGift(data.gift);
+    return data;
   }
 
   global.SiteAPI = { getEvent, submitRsvp, claimGift, isMock };

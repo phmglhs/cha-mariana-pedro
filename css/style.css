@@ -470,7 +470,7 @@ button { cursor: pointer; }
   text-transform: uppercase;
   color: var(--terracotta);
 }
-.rsvp-form label em { font-style: normal; text-transform: none; letter-spacing: 0.02em; color: var(--muted); font-weight: 300; }
+.rsvp-form label em, #confirm-form label em { font-style: normal; text-transform: none; letter-spacing: 0.02em; color: var(--muted); font-weight: 300; }
 .rsvp-form fieldset { border: 0; padding: 0; margin: 0; }
 .rsvp-form legend { margin-bottom: 8px; padding: 0; }
 input[type="text"], input[type="number"], textarea {
@@ -732,6 +732,7 @@ textarea { resize: vertical; min-height: 110px; }
 }
 .modal-card .section-lead { margin-bottom: 16px; font-size: 1.12rem; }
 #confirm-form { width: 100%; display: grid; gap: 12px; text-align: left; }
+#confirm-form textarea { min-height: 88px; }
 .toast {
   left: 50%;
   bottom: 24px;

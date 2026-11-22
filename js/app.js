@@ -352,7 +352,7 @@
           <h3>${gift.name}</h3>
           <p class="gift-desc">${gift.description || ""}</p>
           <p class="gift-price">${money.format(gift.price)}</p>
-          ${gift.purchased ? `<p class="purchased-by">Presenteado por ${escapeHtml(gift.purchasedBy || "alguém especial")}</p>` : `
+          ${gift.purchased ? "" : `
             <div class="gift-actions">
               <a class="btn btn-primary" data-action="store" href="${gift.storeUrl}" target="_blank" rel="noopener noreferrer"><span class="btn-label-full">Comprar na loja</span><span class="btn-label-short">Loja</span></a>
               <button class="btn btn-secondary" type="button" data-action="pix"><span class="btn-label-full">Presentear via Pix</span><span class="btn-label-short">Pix</span></button>
@@ -405,6 +405,8 @@
     confirmModal.querySelector("#confirm-modal-title").textContent = `Confirmar: ${gift.name}`;
     document.getElementById("confirm-error").hidden = true;
     confirmModal.querySelector("input[name=name]").value = "";
+    const messageField = confirmModal.querySelector("textarea[name=message]");
+    if (messageField) messageField.value = "";
     closeModal(pixModal);
     openModal(confirmModal);
   }
@@ -458,10 +460,12 @@
   document.getElementById("confirm-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const errorEl = document.getElementById("confirm-error");
-    const name = new FormData(e.target).get("name").toString().trim();
+    const formData = new FormData(e.target);
+    const name = formData.get("name").toString().trim();
+    const message = (formData.get("message") || "").toString().trim();
     if (!state.pendingGift) return;
     try {
-      const result = await api.claimGift(state.pendingGift.id, { name, method: state.pendingMethod });
+      const result = await api.claimGift(state.pendingGift.id, { name, method: state.pendingMethod, message });
       const gifts = state.event.gifts.map((g) => (g.id === result.gift.id ? result.gift : g));
       state.event.gifts = gifts;
       renderGifts(gifts);
