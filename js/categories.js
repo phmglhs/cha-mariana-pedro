@@ -73,6 +73,7 @@
     "depurador": "Eletrodomésticos",
     "seladora-a-vacuo": "Eletrodomésticos",
     "batedeira": "Eletrodomésticos",
+    "chaleira-eletrica": "Eletrodomésticos",
     "placa-descongelamento-rapido": "Cozinha",
     "rolo-saco-a-vacuo": "Cozinha",
     "balanca-cozinha": "Cozinha",
