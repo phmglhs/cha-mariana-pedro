@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F5F0"/>
+      <stop offset="100%" stop-color="#EFE8DF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#B98470" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <rect width="640" height="480" fill="url(#dots)"/>
+  <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
+  <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
+  <g transform="translate(320 250)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="148" rx="130" ry="12" fill="#E8DDD3" stroke="none" opacity="0.55"/>
+    <!-- cylinder body -->
+    <path d="M-90 20 v90 a90 22 0 0 0 180 0 v-90" fill="#E8DDD3"/>
+    <ellipse cx="0" cy="20" rx="90" ry="22" fill="#F4EEE7"/>
+    <!-- bristle/grid holes suggestion -->
+    <ellipse cx="-28" cy="14" rx="6" ry="3" fill="#C9B8A8" stroke="none"/>
+    <ellipse cx="0" cy="10" rx="6" ry="3" fill="#C9B8A8" stroke="none"/>
+    <ellipse cx="28" cy="14" rx="6" ry="3" fill="#C9B8A8" stroke="none"/>
+    <ellipse cx="-14" cy="26" rx="6" ry="3" fill="#C9B8A8" stroke="none"/>
+    <ellipse cx="14" cy="26" rx="6" ry="3" fill="#C9B8A8" stroke="none"/>
+    <!-- knives -->
+    <path d="M-36 8 L-48 -130" stroke-width="7"/>
+    <path d="M-48 -130 q-18 -8 -8 14 z" fill="#E8DDD3" stroke-width="4"/>
+    <path d="M-2 4 L6 -150" stroke-width="8"/>
+    <path d="M6 -150 q-20 -10 -6 16 z" fill="#E8DDD3" stroke-width="4"/>
+    <path d="M30 10 L52 -118" stroke-width="6"/>
+    <path d="M52 -118 q-16 -8 -4 12 z" fill="#E8DDD3" stroke-width="4"/>
+  </g>
+</svg>

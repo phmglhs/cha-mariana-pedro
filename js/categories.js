@@ -79,6 +79,7 @@
     "espremedor-de-limao": "Cozinha",
     "escorredor-de-louca-inox": "Cozinha",
     "jogo-de-facas": "Cozinha",
+    "porta-facas": "Cozinha",
     "tabua-de-corte": "Cozinha",
     "frigideira-com-tampa": "Cozinha",
     "balde-para-gelo": "Mesa & Bar",
