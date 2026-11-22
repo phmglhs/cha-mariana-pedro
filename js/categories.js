@@ -36,6 +36,7 @@
     "moedor-de-pimenta": "Cozinha",
     "forma-de-bolo": "Cozinha",
     "kit-assadeira": "Cozinha",
+    "jogo-de-assadeiras": "Cozinha",
     "conjunto-forma-quadrada-de-silicone": "Cozinha",
     "forma-redonda-silicone": "Cozinha",
     "conjunto-bowl-de-vidro": "Cozinha",
