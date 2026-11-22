@@ -13,24 +13,16 @@
   <rect width="640" height="480" fill="url(#dots)"/>
   <rect x="28" y="28" width="584" height="424" fill="none" stroke="#B39A84" stroke-width="1.2" opacity="0.55"/>
   <rect x="36" y="36" width="568" height="408" fill="none" stroke="#B98470" stroke-width="0.6" opacity="0.35"/>
-  
-  <g transform="translate(320 250)" fill="none" stroke="#8A4F3D" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0" cy="155" rx="160" ry="12" fill="#E8DDD3" stroke="none" opacity="0.6"/>
-    <!-- block -->
-    <path d="M-90 40 h180 l-20 90 h-140 z" fill="#8B5A3C"/>
-    <path d="M-90 40 l40 -30 h180 l-40 30 z" fill="#A06A48"/>
-    <path d="M130 40 l-20 90 l-40 -30 l40 -60 z" fill="#6E4530"/>
-    <!-- knives -->
-    <g>
-      <rect x="-40" y="-130" width="10" height="150" rx="2" fill="#F3EDE5"/>
-      <rect x="-48" y="-130" width="26" height="36" rx="4" fill="#4A2F26"/>
-      <rect x="0" y="-150" width="10" height="170" rx="2" fill="#F3EDE5"/>
-      <rect x="-8" y="-150" width="26" height="36" rx="4" fill="#4A2F26"/>
-      <rect x="40" y="-120" width="10" height="140" rx="2" fill="#F3EDE5"/>
-      <rect x="32" y="-120" width="26" height="36" rx="4" fill="#4A2F26"/>
-      <rect x="80" y="-100" width="10" height="120" rx="2" fill="#F3EDE5"/>
-      <rect x="72" y="-100" width="26" height="30" rx="4" fill="#B39A84" stroke="#8A4F3D"/>
-    </g>
-  </g>
+  <g transform="translate(320 248)" fill="none" stroke="#8A4F3D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="150" rx="150" ry="12" fill="#E8DDD3" stroke="none" opacity="0.7"/>
 
+    <path d="M-40 100 L-10 -90 h80 L100 100 z" fill="#5B3C31"/>
+    <path d="M-20 100 L6 -70 h48 L80 100 z" fill="#4A2F26" stroke="#B39A84" stroke-width="3"/>
+    <path d="M20 -110 v80" stroke-width="8"/>
+    <path d="M40 -130 v100" stroke-width="8"/>
+    <path d="M60 -100 v70" stroke-width="7"/>
+    <path d="M10 -90 l-70 20" stroke-width="7"/>
+    <path d="M-60 -70 h-70 q-8 8 0 16 h70" fill="#E8DDD3"/>
+
+  </g>
 </svg>

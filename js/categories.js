@@ -74,7 +74,24 @@
     "lixeira-banheiro-1": "Casa & Limpeza",
     "lixeira-banheiro-2": "Casa & Limpeza",
     "cobertor-de-microfibra": "Cama & Banho",
-    "pillow-top": "Cama & Banho"
+    "pillow-top": "Cama & Banho",
+    "depurador": "Eletrodomésticos",
+    "seladora-a-vacuo": "Eletrodomésticos",
+    "batedeira": "Eletrodomésticos",
+    "placa-descongelamento-rapido": "Cozinha",
+    "rolo-saco-a-vacuo": "Cozinha",
+    "balanca-cozinha": "Cozinha",
+    "espremedor-de-limao": "Cozinha",
+    "escorredor-de-louca-inox": "Cozinha",
+    "jogo-de-facas": "Cozinha",
+    "tabua-de-corte": "Cozinha",
+    "frigideira-com-tampa": "Cozinha",
+    "balde-para-gelo": "Mesa & Bar",
+    "porta-papel-aluminio": "Organização",
+    "kit-marmitas-vidro": "Organização",
+    "limpador-magnetico-janela": "Casa & Limpeza",
+    "espanador-retratil": "Casa & Limpeza",
+    "travesseiros": "Cama & Banho",
   };
 
   global.giftCategory = function giftCategory(gift) {
